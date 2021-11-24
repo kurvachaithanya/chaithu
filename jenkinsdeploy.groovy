@@ -3,7 +3,7 @@ pipeline{
     agent any
     parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'type branch name here')
-        string(name: 'SERVER_IP', defaultValue: '', description: 'type SERVER_IP name here')
+        string(name: 'SERVER_IP', defaultValue: '', description: 'type SERVER_IP nme here')
         string(name: 'BUILD_NUM', defaultValue: '', description: 'type BUILD_NUM name here')
     }
     stages{
