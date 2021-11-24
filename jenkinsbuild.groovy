@@ -12,7 +12,7 @@ pipeline{
         stage("build code"){
             steps{
                 println "build the code using maven"
-                sh "maven clean package"
+                sh "mvn clean package"
                 sh "ls -l"
             }
         }
