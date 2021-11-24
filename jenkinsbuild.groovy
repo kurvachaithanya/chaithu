@@ -13,7 +13,7 @@ pipeline{
             steps{
                 println "build the code using maven"
                 sh "mvn clean package"
-                sh "target/ ls -l"
+                sh "ls -l"
             }
         }
         stage("save artifacts in s3"){
