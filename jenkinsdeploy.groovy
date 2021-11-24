@@ -19,7 +19,7 @@ pipeline{
             steps{
                 sh """
                 ssh -i /tmp/mine.pem ec2-user@${SERVER_IP} "systemctl status tomcat"
-                scp -i /tmp/mine.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/tmp
+                scp -i /tmp/mine.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/var/lib/tomcat/webapps
                 """
 
             }
