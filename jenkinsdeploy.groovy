@@ -10,7 +10,7 @@ pipeline{
         stage("download artifacts"){
             steps{
                 sh """
-                aws s3 ls://chaituart
+                aws s3 ls s3://chaituart
                 aws s3 cp s3://chaituart/hello-${BUILD_NUM}.war .
                 """
             }
