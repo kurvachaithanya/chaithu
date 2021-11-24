@@ -18,7 +18,7 @@ pipeline{
         stage("copy artifacts to remote server"){
             steps{
                 sh """
-                ssh -i /tmp/mine.pem ec2-user@${SERVER_IP} "\systemctl status tomcat\"
+                ssh -i /tmp/mine.pem ec2-user@${SERVER_IP} "systemctl status tomcat"
                 scp -i /tmp/mine.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/tmp
                 """
 
