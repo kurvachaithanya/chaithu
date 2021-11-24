@@ -15,7 +15,7 @@ pipeline{
                 """
             }
         }
-        stage("copy artifacts to remote server"){
+        stage("copy artifact to remote server"){
             steps{
                 sh """
                 ssh -i /tmp/mine.pem ec2-user@${SERVER_IP} "systemctl status tomcat"
