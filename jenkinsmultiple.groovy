@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage("multiple servers"){
             steps{
-                sh """
+                sh '''
                 aws s3 cp s3://chaituart/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war .
                 IFS=',' read -ra ADDR << "${SERVERIPS}"
                 for ip in \"${ADDR[@]}\";
@@ -19,7 +19,7 @@ pipeline{
                  ssh -o StrictHostkeychecking=no -i /tmp/mine.pem ec2-user@$ip "hostname"
                   # process "$i" 
                 done          
-                """
+                '''
             }
         }
     }
