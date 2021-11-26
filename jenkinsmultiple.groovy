@@ -12,7 +12,7 @@ pipeline{
                 sh """
                 aws s3 cp s3://chaituart/${BRANCH_NAME}/${BUILD_NUM}/hello-${BUILD_NUM}.war .
                 IFS=',' read -ra ADDR << "${SERVERIPS}"
-                for ip in "${ADDR[@]}";
+                for ip in \"${ADDR[@]}\";
                 do 
                 echo $ip
                  scp -o StrictHostkeychecking=no -i /tmp/mine.pem hello-${BUILD_NUM}.war ec2-user@$ip:/var/lib/tomcat/webapps
