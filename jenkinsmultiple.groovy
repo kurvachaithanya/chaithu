@@ -16,8 +16,6 @@ pipeline{
                 do 
                 echo $ip
                  scp -o strictHostkeychecking=no -i /tmp/mine.pem hello-${BUILD_NUMBER}.war ec2-user@$ip:/var/lib/tomcat/webapps
-                 ssh -o strictHostkeychecking=no -i /tmp/mine.pem ec2-user@$ip "hostname"
-                  # process "$i" 
                 done          
                 '''
             }
