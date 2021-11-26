@@ -11,7 +11,7 @@ pipeline{
                 sh '''
                 aws s3 cp s3://chaituart/hello-${BUILD_NUM}.war .
                 ls -l
-                IFS=',' read -ra ADDR << "${SERVERIPS}"
+                IFS=',' read -ra ADDR <<< "${SERVERIPS}"
                 for ip in \"${ADDR[@]}\";
                 do 
                 echo $ip
