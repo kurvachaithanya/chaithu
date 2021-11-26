@@ -2,7 +2,6 @@
 pipeline{
     agent any
     parameters {
-    //string(name: 'BRANCH_NAME', defaultValue: 'master', description: 'type branch name here')
         string(name: 'SERVERIPS', defaultValue: '', description: 'type SERVER_IP nme here')
         string(name: 'BUILD_NUM', defaultValue: '', description: 'type BUILD_NUM name here')
     }
@@ -11,6 +10,7 @@ pipeline{
             steps{
                 sh '''
                 aws s3 cp s3://chaituart/hello-${BUILD_NUM}.war .
+                ls -l
                 IFS=',' read -ra ADDR << "${SERVERIPS}"
                 for ip in \"${ADDR[@]}\";
                 do 
