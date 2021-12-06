@@ -7,7 +7,7 @@ pipeline{
         string(name: 'BUILD_NUM', defaultValue: '', description: 'type BUILD_NUM name here')
     }
     stages{
-        stage("download artifacts"){
+        stage("download artifcts"){
             steps{
                 sh """
                 aws s3 ls s3://chaituart
