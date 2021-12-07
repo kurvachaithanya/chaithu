@@ -19,7 +19,7 @@ pipeline{
             steps{
                 sh """
                 
-               scp -i /tmp/mine.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/tmp
+               scp -o StrictHostKeyChecking=no -i /tmp/mine.pem hello-${BUILD_NUM}.war ec2-user@${SERVER_IP}:/tmp
                ssh -i /tmp/mine.pem ec2-user@${SERVER_IP} "sudo cp /tmp/hello-${BUILD_NUM}.war /var/lib/tomcat/webapps"
                  
                 """
